@@ -38,10 +38,10 @@ public class BaseTest {
         String completeUrl = "http://" + host + ":4444";
         dc.setCapability("name", testName);
 
-        System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe");
-        this.driver = new ChromeDriver();
+        /*System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe");
+        this.driver = new ChromeDriver();*/
 
-        //this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+        this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
     }
 
     @AfterTest
