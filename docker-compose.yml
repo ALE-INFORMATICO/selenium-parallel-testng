@@ -1,3 +1,4 @@
+
 # To execute this docker-compose yml file use `docker-compose -f docker-compose-v3-full-grid.yml up`
 # Add the `-d` flag at the end for detached execution
 # To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-compose-v3-full-grid.yml down`
@@ -97,7 +98,7 @@ services:
       - "6903:5900"
 
   cursodocker:
-    image: cursodocker
+    image: alejandrocontreras/seleniumdocker
     depends_on:
       - selenium-event-bus
       - selenium-sessions
@@ -111,10 +112,10 @@ services:
       - HUB_HOST=162.222.178.134
       - MODULE=testng.xml
     volumes:
-      - ./result-tests:/usr/share/udemy/test-output
+      - ./result-tests1:/usr/share/udemy/test-output
 
   cursodocker-search-module:
-    image: cursodocker
+    image: alejandrocontreras/seleniumdocker
     depends_on:
       - selenium-event-bus
       - selenium-sessions
@@ -128,4 +129,4 @@ services:
       - HUB_HOST=162.222.178.134
       - MODULE=search-module.xml
     volumes:
-      - ./result-tests:/usr/share/udemy/test-output
+      - ./result-tests2:/usr/share/udemy/test-output
