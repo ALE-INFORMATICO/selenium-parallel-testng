@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="book-flight-module" parallel="tests" thread-count="3">
+<suite name="book-flight-module">
 
     <test name="book-flight-1">
         <parameter name="noOfPassengers" value="1" />

@@ -21,7 +21,7 @@ public class SearchPage {
     @FindBy(id = "search_button_homepage")
     private WebElement searchBtn;
 
-    @FindBy(linkText = "Videos")
+    @FindBy(xpath = "//*[@class=\"zcm__link  js-zci-link  js-zci-link--videos\"]")
     private WebElement videosLink;
 
     @FindBy(className = "tile--vid")

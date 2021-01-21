@@ -1,18 +1,12 @@
-#!/usr/bin/env bash
-# Environment Variables
-# HUB_HOST
-# BROWSER
-# MODULE
+#!/bin/bash
 
-echo "Checking if hub is ready - $HUB_HOST"
+echo "........................................................."
+echo "Chequeando si el HUB está listo para ejecutar las pruebas"
+echo "........................................................."
 
-while [ "$( curl -s http://$HUB_HOST:4444/status | jq -r .value.ready )" != "true" ]
+while [ "$(curl -s http://162.222.178.134:4444/status | jq -r .value.nodes[0].availability)" != "UP" ]
 do
-	sleep 1
+        sleep 10
 done
 
-# start the java command
-java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* \
-    -DHUB_HOST=$HUB_HOST \
-    -DBROWSER=$BROWSER \
-    org.testng.TestNG $MODULE
+java -cp selenium-docker.jar:selenium-docker-tests.jar:lib/* -DBROWSER=162.222.178.134 -DHUB_HOST=$HUB_HOST org.testng.TestNG $MODULE
