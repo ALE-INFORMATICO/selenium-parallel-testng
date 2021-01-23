@@ -8,7 +8,9 @@ pipeline {
                     args '-v $HOME/.m2:/root/.m2'
                 }
             }
-            steps {
+        }
+        stage('package maven'){
+            steps{
                 sh 'mvn clean package -DskipTests'
             }
         }
