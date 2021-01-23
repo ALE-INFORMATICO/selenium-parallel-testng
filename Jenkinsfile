@@ -5,15 +5,13 @@ pipeline {
             agent {
                 docker {
                     image 'maven:3-alpine'
-                    args '-v /home/test24122020/.m2:/root/.m2'
+                    args '-v $HOME/.m2:/root/.m2'
                 }
-            }
-            steps {
-                sh 'mvn clean package -DskipTests'
             }
         }
         stage('Build Image') {
             steps {
+                sh 'mvn clean package -DskipTests'
                 script {
                 	app = docker.build("alejandrocontreras/seleniumdocker")
                 }
