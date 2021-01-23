@@ -12,6 +12,8 @@ pipeline {
         stage('Build Image') {
             steps {
                 sh 'mvn clean package -DskipTests'
+            }
+            steps {
                 script {
                 	app = docker.build("alejandrocontreras/seleniumdocker")
                 }
