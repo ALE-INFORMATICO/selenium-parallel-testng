@@ -8,8 +8,6 @@ pipeline {
                     args '-v $HOME/.m2:/root/.m2'
                 }
             }
-        }
-        stage('Mvn Package') {
             steps {
                 sh 'mvn clean package -DskipTests'
             }
