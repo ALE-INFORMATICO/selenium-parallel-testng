@@ -10,7 +10,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'mvn clean package -DskipTests -Duser.home=/home/test24122020'
+                sh 'mvn clean package -DskipTests'
             }
         }
         stage('Build Image') {
